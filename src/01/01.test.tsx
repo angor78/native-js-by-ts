@@ -9,19 +9,19 @@ beforeEach(() => {
   word = 'sentense'
 })
 
-test('sum should be', () => {
+test.skip('sum should be', () => {
 
   const result = sum(a, b)
   //expept result
   expect(result).toBe(3)
 })
-test('mult should be correct', () => {
+test.skip('mult should be correct', () => {
 
   const result = mult(a, b)
   expect(result).toBe(2)
 
 })
-test("removeChar should be remove first and last char from word", () => {
+test.skip("removeChar should be remove first and last char from word", () => {
   const splicer = removeChar(word)
   expect(splicer).toBe("entens")
 })
