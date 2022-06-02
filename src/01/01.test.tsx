@@ -1,5 +1,5 @@
 import {
-  addBooks,
+  addBooks, addFriend,
   changeIngredientsFavoriteDish,
   changeMotherAge,
   makeCopyObjInObj,
@@ -130,4 +130,19 @@ test('add element to array', () => {
   expect(user.books.length).toBe(3)
   expect(changedUser.books.length).toBe(4)
   expect(changedUser.books[3]).toBe('css')
+})
+test('add element to array object', () => {
+  let user = {
+    name: 'Andrey',
+    age: 43,
+    address: {
+      city: "Penza",
+      house: 66
+    },
+    books: ['js', 'react', 'html'],
+    friends:[]
+  }
+  const newFriend = {name:'Bob',age:36}
+  const changedUser = addFriend(user, newFriend)
+  expect(changedUser.friends[0].age).toBe(36)
 })

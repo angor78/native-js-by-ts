@@ -91,6 +91,10 @@ type UserType = {
   address: { city: string, house: number }
   books: Array<string>
 }
+type SingleFriendType={
+  name:string
+  age:number
+}
 
 export const updateUserBooks = (user: UserType, oldBook: string, newBook: string) => {
   return {
@@ -108,5 +112,11 @@ export const addBooks = (user: UserType, newBook: string) => {
   return {
     ...user,
     books: [...user.books, newBook]
+  }
+}
+export const addFriend = (user:UserType,newFriend:SingleFriendType) => {
+  return{
+    ...user,
+    friends:[newFriend]
   }
 }
