@@ -64,18 +64,49 @@ export const makeDeepCopyMan = (obj: makeDeepCopyManPropsType) => {
     }
   }
 }
-export const changeIngredientsFavoriteDish = (obj: makeDeepCopyManPropsType,ingridient: string) => {
+export const changeIngredientsFavoriteDish = (obj: makeDeepCopyManPropsType, ingridient: string) => {
   return {
     ...obj,
     mother: {
-      ...obj.mother, work: {...obj.mother.work},
+      ...obj.mother,
+      work: {...obj.mother.work},
       parents: [...obj.mother.parents.map(el => el = {
         ...el,
         favoriteDish: {
           ...el.favoriteDish,
-          ingredients: [...el.favoriteDish.ingredients.map(i =>el.favoriteDish.ingredients[0]?i = {...i,title:ingridient}:i={...i})]
+          ingredients: [...el.favoriteDish.ingredients.map(i => el.favoriteDish.ingredients[0] ? i = {
+            ...i,
+            title: ingridient
+          } : i = {...i})]
         }
       })]
     }
   }
 }
+export const changeIngredientsFavoriteDish2 = (obj: makeDeepCopyManPropsType, ingridient: string) => {
+  return {
+    ...obj,
+
+  }
+}
+
+
+type UserType = {
+  name: string
+  age: number
+  address: { city: string, house: number }
+  books: Array<string>
+}
+
+export const updateUserBooks = (user: UserType, oldBook: string, newBook: string) => {
+  return {
+    ...user,
+    books: user.books.map(b => b === oldBook ? newBook : b)
+  }
+}
+// export const updateUserAddress = (user: UserType, newCity: string) => {
+//   return {
+//     ...user,
+//     address:{...user.address,city:newCity}
+//   }
+// }

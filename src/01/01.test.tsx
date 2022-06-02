@@ -1,13 +1,13 @@
 import {
-  changeIngredientsFavoriteDish,
+  changeIngredientsFavoriteDish, changeIngredientsFavoriteDish2,
   changeMotherAge,
   makeCopyObjInObj,
   makeDeepCopyMan,
-  makeDeepCopySimpleObj
+  makeDeepCopySimpleObj,  updateUserBooks
 } from "./01";
 
 
-test('deep copy simple',()=>{
+test('deep copy simple', () => {
   let man = {
     name: 'John',
     age: 28
@@ -18,7 +18,7 @@ test('deep copy simple',()=>{
   expect(man.age).toBe(manCopy.age)
 })
 
-test('deep copy object inside an object',()=>{
+test('deep copy object inside an object', () => {
   let man1 = {
     name: 'John',
     age: 28,
@@ -28,7 +28,7 @@ test('deep copy object inside an object',()=>{
     }
   };
   const copyMan = makeCopyObjInObj(man1)
-  const changedMan = changeMotherAge(man1,22)
+  const changedMan = changeMotherAge(man1, 22)
 
   expect(man1.name).toBe(copyMan.name)
   expect(man1.mother.name).toBe(copyMan.mother.name)
@@ -36,7 +36,7 @@ test('deep copy object inside an object',()=>{
 
 })
 
-test('deep copy and change nested objects',()=>{
+test('deep copy and change nested objects', () => {
   let man = {
     name: 'John',
     age: 28,
@@ -77,7 +77,40 @@ test('deep copy and change nested objects',()=>{
 
   const deepCopyMan = makeDeepCopyMan(man)
   expect(man.mother.parents[0].favoriteDish.ingredients[0].title).toBe(deepCopyMan.mother.parents[0].favoriteDish.ingredients[0].title)
-  const changedMan=changeIngredientsFavoriteDish(man,'pig')
+  const changedMan = changeIngredientsFavoriteDish(man, 'pig')
   expect(man.mother.parents[0].favoriteDish.ingredients[0].title).not.toBe(changedMan.mother.parents[0].favoriteDish.ingredients[0].title)
+  expect(changedMan.mother.parents[0].favoriteDish.ingredients[0].title).toBe('pig')
 
 })
+
+test('update field object', () => {
+  let user = {
+    name: 'Andrey',
+    age: 43,
+    address: {
+      city: "Penza",
+      house: 66
+    },
+    books: ['js', 'react', 'html']
+  }
+
+  const changedUser = updateUserBooks(user, 'js', 'ts')
+  expect(user.books.length).toBe(3)
+  expect(changedUser.books[0]).toBe('ts')
+  expect(user.books[0]).toBe('js')
+})
+// test('update field object vol2', () => {
+//   let user = {
+//     name: 'Andrey',
+//     age: 43,
+//     address: {
+//       city: "Penza",
+//       house: 66
+//     },
+//     books: ['js', 'react', 'html']
+//   }
+//
+//   const changedUser = updateUserAddress(user,"Alupka")
+//   expect(changedUser.address.city).toBe('Alupka')
+//   expect(user.address.city).toBe('Penza')
+// })
