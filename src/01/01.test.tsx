@@ -1,5 +1,5 @@
 import {
-  addBooks, addFriend,
+  addBooks, addFriend, changeFriendAgeField,
   changeIngredientsFavoriteDish,
   changeMotherAge,
   makeCopyObjInObj,
@@ -148,4 +148,23 @@ test('add element to array object', () => {
   const newFriend = {name:'Bob',age:36}
   const changedUser = addFriend(user, newFriend)
   expect(changedUser.friends[0].age).toBe(36)
+})
+
+test('change field of object inside array', () => {
+  let user = {
+    name: 'Andrey',
+    age: 43,
+    address: {
+      city: "Penza",
+      house: 66
+    },
+    books: ['js', 'react', 'html'],
+    friends:[
+      {name:'Rick',age:88},
+      {name:'Jack',age:66},
+      {name:'Lukas',age:77},
+    ]
+  }
+  const changedUser = changeFriendAgeField(user, 'Rick',55)
+  expect(changedUser.friends[0]?.age).toBe(55)
 })

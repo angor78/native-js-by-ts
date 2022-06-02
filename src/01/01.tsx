@@ -90,10 +90,18 @@ type UserType = {
   address: { city: string, house: number }
   books: Array<string>
 }
-type SingleFriendType={
-  name:string
-  age:number
+type SingleFriendType = {
+  name: string
+  age: number
 }
+type UserChangedType = {
+  name: string
+  age: number
+  address: { city: string, house: number }
+  books: Array<string>
+  friends:Array<SingleFriendType>
+}
+
 
 export const updateUserBooks = (user: UserType, oldBook: string, newBook: string) => {
   return {
@@ -104,7 +112,7 @@ export const updateUserBooks = (user: UserType, oldBook: string, newBook: string
 export const updateUserAddress = (user: UserType, newCity: string) => {
   return {
     ...user,
-    address:{...user.address,city:newCity}
+    address: {...user.address, city: newCity}
   }
 }
 export const addBooks = (user: UserType, newBook: string) => {
@@ -113,9 +121,16 @@ export const addBooks = (user: UserType, newBook: string) => {
     books: [...user.books, newBook]
   }
 }
-export const addFriend = (user:UserType,newFriend:SingleFriendType) => {
-  return{
+export const addFriend = (user: UserType, newFriend: SingleFriendType) => {
+  return {
     ...user,
-    friends:[newFriend]
+    friends: [newFriend]
+  }
+}
+
+export const changeFriendAgeField = (user: UserChangedType, nameFriend: string, newAge: number) => {
+  return {
+    ...user,
+    friends:[...user.friends,,user.friends.find(el=>el.name===nameFriend?el.age=newAge:el)]
   }
 }
