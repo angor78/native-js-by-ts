@@ -83,12 +83,6 @@ export const changeIngredientsFavoriteDish = (obj: makeDeepCopyManPropsType, ing
     }
   }
 }
-export const changeIngredientsFavoriteDish2 = (obj: makeDeepCopyManPropsType, ingridient: string) => {
-  return {
-    ...obj,
-
-  }
-}
 
 
 type UserType = {
@@ -104,9 +98,9 @@ export const updateUserBooks = (user: UserType, oldBook: string, newBook: string
     books: user.books.map(b => b === oldBook ? newBook : b)
   }
 }
-// export const updateUserAddress = (user: UserType, newCity: string) => {
-//   return {
-//     ...user,
-//     address:{...user.address,city:newCity}
-//   }
-// }
+export const updateUserAddress = (user: UserType, newCity: string) => {
+  return {
+    ...user,
+    address:{...user.address,city:newCity}
+  }
+}

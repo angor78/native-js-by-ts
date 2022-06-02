@@ -1,9 +1,9 @@
 import {
-  changeIngredientsFavoriteDish, changeIngredientsFavoriteDish2,
+  changeIngredientsFavoriteDish,
   changeMotherAge,
   makeCopyObjInObj,
   makeDeepCopyMan,
-  makeDeepCopySimpleObj,  updateUserBooks
+  makeDeepCopySimpleObj, updateUserAddress, updateUserBooks
 } from "./01";
 
 
@@ -99,18 +99,18 @@ test('update field object', () => {
   expect(changedUser.books[0]).toBe('ts')
   expect(user.books[0]).toBe('js')
 })
-// test('update field object vol2', () => {
-//   let user = {
-//     name: 'Andrey',
-//     age: 43,
-//     address: {
-//       city: "Penza",
-//       house: 66
-//     },
-//     books: ['js', 'react', 'html']
-//   }
-//
-//   const changedUser = updateUserAddress(user,"Alupka")
-//   expect(changedUser.address.city).toBe('Alupka')
-//   expect(user.address.city).toBe('Penza')
-// })
+test('update field object vol2', () => {
+  let user = {
+    name: 'Andrey',
+    age: 43,
+    address: {
+      city: "Penza",
+      house: 66
+    },
+    books: ['js', 'react', 'html']
+  }
+
+  const changedUser = updateUserAddress(user,"Alupka")
+  expect(changedUser.address.city).toBe('Alupka')
+  expect(user.address.city).toBe('Penza')
+})
