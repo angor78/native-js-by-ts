@@ -1,4 +1,5 @@
 import {
+  addBooks,
   changeIngredientsFavoriteDish,
   changeMotherAge,
   makeCopyObjInObj,
@@ -113,4 +114,20 @@ test('update field object vol2', () => {
   const changedUser = updateUserAddress(user,"Alupka")
   expect(changedUser.address.city).toBe('Alupka')
   expect(user.address.city).toBe('Penza')
+})
+test('add element to array', () => {
+  let user = {
+    name: 'Andrey',
+    age: 43,
+    address: {
+      city: "Penza",
+      house: 66
+    },
+    books: ['js', 'react', 'html']
+  }
+
+  const changedUser = addBooks(user, 'css')
+  expect(user.books.length).toBe(3)
+  expect(changedUser.books.length).toBe(4)
+  expect(changedUser.books[3]).toBe('css')
 })

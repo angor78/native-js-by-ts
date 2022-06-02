@@ -104,3 +104,9 @@ export const updateUserAddress = (user: UserType, newCity: string) => {
     address:{...user.address,city:newCity}
   }
 }
+export const addBooks = (user: UserType, newBook: string) => {
+  return {
+    ...user,
+    books: [...user.books, newBook]
+  }
+}
