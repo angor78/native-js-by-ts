@@ -100,6 +100,7 @@ test('update field object', () => {
   expect(changedUser.books[0]).toBe('ts')
   expect(user.books[0]).toBe('js')
 })
+
 test('update field object vol2', () => {
   let user = {
     name: 'Andrey',
@@ -115,6 +116,7 @@ test('update field object vol2', () => {
   expect(changedUser.address.city).toBe('Alupka')
   expect(user.address.city).toBe('Penza')
 })
+
 test('add element to array', () => {
   let user = {
     name: 'Andrey',
@@ -131,6 +133,7 @@ test('add element to array', () => {
   expect(changedUser.books.length).toBe(4)
   expect(changedUser.books[3]).toBe('css')
 })
+
 test('add element to array object', () => {
   let user = {
     name: 'Andrey',

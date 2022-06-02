@@ -84,7 +84,6 @@ export const changeIngredientsFavoriteDish = (obj: makeDeepCopyManPropsType, ing
   }
 }
 
-
 type UserType = {
   name: string
   age: number
