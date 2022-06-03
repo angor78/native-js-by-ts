@@ -37,7 +37,7 @@ export const make3BestStudents = (students:Array<StudentType>) => {
     .splice(3,5)
 }
 export const makenotMarriedStudents = (students:Array<StudentType>) => {
-  return students.filter(el=>el.isMarried!==true)
+  return students.filter(el=>!el.isMarried)
 }
 export const makeStudentsNames = (students:Array<StudentType>) => {
   return students.map(el=>el.name)
@@ -47,4 +47,7 @@ export const makeNamesWithSpace = (students:Array<StudentType>) => {
 }
 export const makeNamesWithComma = (students:Array<StudentType>) => {
   return students.map(el=>el.name).join(',')
+}
+export const makeTrueStudents = (students:Array<StudentType>) => {
+  return students.map(el=>({el,isStudent:true}))
 }

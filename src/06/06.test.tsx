@@ -4,7 +4,7 @@ import {
   makeDeepCopy,
   makeDeepCopyStudents, makeNamesWithComma, makeNamesWithSpace, makenotMarriedStudents,
   makeSortedByScores,
-  makeSortedStudents, makeStudentsNames,
+  makeSortedStudents, makeStudentsNames, makeTrueStudents,
   shadowCopy,
   shadowCopyStudents
 } from "./06";
@@ -449,4 +449,50 @@ test('Homework_8a', () => {
   console.log(namesWithSpace)
   let namesWithComma = makeNamesWithComma(students);
   console.log(namesWithComma)
+})
+test('Homework_9', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+
+//9. Добавьте всем студентам свойство "isStudent" со значением true (map)
+  let trueStudents=makeTrueStudents(students);
+  console.log(trueStudents)
+  expect(trueStudents[0].isStudent).toBe(true)
+
 })
