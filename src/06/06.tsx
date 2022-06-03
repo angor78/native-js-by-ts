@@ -42,3 +42,9 @@ export const makenotMarriedStudents = (students:Array<StudentType>) => {
 export const makeStudentsNames = (students:Array<StudentType>) => {
   return students.map(el=>el.name)
 }
+export const makeNamesWithSpace = (students:Array<StudentType>) => {
+  return students.map(el=>el.name).join(' ')
+}
+export const makeNamesWithComma = (students:Array<StudentType>) => {
+  return students.map(el=>el.name).join(',')
+}

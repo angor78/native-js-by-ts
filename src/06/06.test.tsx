@@ -2,7 +2,7 @@ import {
   make3BestStudents,
   makeBestStudents,
   makeDeepCopy,
-  makeDeepCopyStudents, makenotMarriedStudents,
+  makeDeepCopyStudents, makeNamesWithComma, makeNamesWithSpace, makenotMarriedStudents,
   makeSortedByScores,
   makeSortedStudents, makeStudentsNames,
   shadowCopy,
@@ -402,4 +402,51 @@ test('Homework_8', () => {
   console.log(studentsNames)
   expect(studentsNames.length).toBe(6)
   expect(studentsNames[0]).toBe("Bob")
+})
+test('Homework_8a', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+//8a. Сформируйте строку из имён студентов, разделённых
+// - пробелом (join)
+// - запятой (join)
+  let namesWithSpace = makeNamesWithSpace(students);
+  console.log(namesWithSpace)
+  let namesWithComma = makeNamesWithComma(students);
+  console.log(namesWithComma)
 })
