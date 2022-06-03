@@ -1,7 +1,8 @@
 import {
+  make3BestStudents,
   makeBestStudents,
   makeDeepCopy,
-  makeDeepCopyStudents,
+  makeDeepCopyStudents, makenotMarriedStudents,
   makeSortedByScores,
   makeSortedStudents,
   shadowCopy,
@@ -268,4 +269,137 @@ test('Homework_6', () => {
   let bestStudents = makeBestStudents(students)
   console.log(bestStudents)
   expect(bestStudents.length).toBe(4)
+})
+test('Homework_6a', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+//6a. Получите массив ("вырежьте") из трёх лучших студентов из массива deepCopyStudents (splice)
+  let bestStudents = make3BestStudents(students)
+  console.log(bestStudents)
+  expect(bestStudents.length).toBe(3)
+})
+test('Homework_7',()=>{
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+//7. Сформируйте массив холостых студентов (filter)
+  let notMarriedStudents=makenotMarriedStudents(students);
+  console.log(notMarriedStudents)
+  expect(notMarriedStudents.length).toBe(4)
+})
+test('Homework_7',()=>{
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+//8. Сформируйте массив имён студентов (map)
+  let studentsNames=makeStudentsNames(students);
+  console.log(studentsNames)
+  expect(studentsNames.length).toBe(6)
+  expect(studentsNames[0]).toBe('')
 })

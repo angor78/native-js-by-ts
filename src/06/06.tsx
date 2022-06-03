@@ -31,3 +31,11 @@ export const makeSortedByScores = (students:Array<StudentType>) => {
 export const makeBestStudents = (students:Array<StudentType>) => {
   return students.filter(el=>el.scores>=100)
 }
+export const make3BestStudents = (students:Array<StudentType>) => {
+  return students.map(el=>({...el}))
+    .sort((a,b)=>a.scores>b.scores?1:-1)
+    .splice(3,5)
+}
+export const makenotMarriedStudents = (students:Array<StudentType>) => {
+  return students.filter(el=>el.isMarried!==true)
+}
