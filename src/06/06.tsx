@@ -63,3 +63,7 @@ export const findBestStudents = (students:Array<StudentType>) => {
 export const getSumScores = (students:Array<StudentType>) => {
   return students.reduce((acc,el)=>acc+el.scores,0)
 }
+export const addFriends = (students:Array<StudentType>) => {
+  let friends=students.map(el=>el.name)
+  return students.map(el=>({...el,friends:friends}))
+}

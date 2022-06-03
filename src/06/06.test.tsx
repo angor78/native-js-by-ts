@@ -1,4 +1,5 @@
 import {
+  addFriends,
   findAnn, findBestStudents, getSumScores,
   make3BestStudents,
   makeBestStudents,
@@ -677,4 +678,50 @@ test('Homework_13', () => {
   let totalScores = getSumScores(students)
   console.log(totalScores)
   expect(totalScores).toBe(610)
+})
+test('Homework_14', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+
+// и добавляет в каждому студенту свойство "friends",
+// значением которого является массив имён всех остальных студентов из массива students,
+// за исключением собственного имени студента. Т.е. в друзьях у Боба Боба быть не должно.
+  let newStudents = addFriends(students)
+  console.log(newStudents);
 })
