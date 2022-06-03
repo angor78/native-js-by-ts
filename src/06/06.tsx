@@ -28,3 +28,6 @@ export const makeSortedStudents = (students:Array<StudentType>) => {
 export const makeSortedByScores = (students:Array<StudentType>) => {
   return students.map(el=>({...el})).sort((a,b)=>a.scores<b.scores?1:-1)
 }
+export const makeBestStudents = (students:Array<StudentType>) => {
+  return students.filter(el=>el.scores>=100)
+}

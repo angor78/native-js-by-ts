@@ -1,4 +1,5 @@
 import {
+  makeBestStudents,
   makeDeepCopy,
   makeDeepCopyStudents,
   makeSortedByScores,
@@ -77,12 +78,12 @@ test('Homework_3', () => {
 
   //3. Поверхностная копия массива students
   let copyStudents = shadowCopyStudents(students);
-  copyStudents[0].age=1
+  copyStudents[0].age = 1
   expect(students.length === copyStudents.length).toBe(true)
   expect(students === copyStudents).toBe(false)
   expect(copyStudents[0].name).toBe('Bob')
   expect(students[0].age).toBe(1)
-  expect(students[0].age===copyStudents[0].age).toBe(true)
+  expect(students[0].age === copyStudents[0].age).toBe(true)
 })
 test('Homework_4', () => {
   const students = [
@@ -124,12 +125,12 @@ test('Homework_4', () => {
     },
   ];
 //4*. Полная (глубокая) копия массива students (map)
-  let deepCopyStudents=makeDeepCopyStudents(students);
-  deepCopyStudents[0].age=1
+  let deepCopyStudents = makeDeepCopyStudents(students);
+  deepCopyStudents[0].age = 1
   expect(students.length === deepCopyStudents.length).toBe(true)
   expect(students === deepCopyStudents).toBe(false)
   expect(deepCopyStudents[0].name).toBe('Bob')
-  expect(students[0].age===deepCopyStudents[0].age).toBe(false)
+  expect(students[0].age === deepCopyStudents[0].age).toBe(false)
 
 })
 test('Homework_5', () => {
@@ -218,9 +219,53 @@ test('Homework_5a', () => {
     },
   ];
 //5a. Отсортируйте deepCopyStudents по успеваемости(лучший идёт первым)(sort)
-  let sortedByScores=makeSortedByScores(students);
+  let sortedByScores = makeSortedByScores(students);
   console.log(sortedByScores);
   expect(students.length === sortedByScores.length).toBe(true)
   expect(students === sortedByScores).toBe(false)
   expect(sortedByScores[0].scores).toBe(120)
+})
+test('Homework_6', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+//6. Сформируйте массив студентов, у которых 100 и более баллов (filter)
+  let bestStudents = makeBestStudents(students)
+  console.log(bestStudents)
+  expect(bestStudents.length).toBe(4)
 })
