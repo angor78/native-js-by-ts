@@ -2,7 +2,7 @@ import {
   make3BestStudents,
   makeBestStudents,
   makeDeepCopy,
-  makeDeepCopyStudents, makeNamesWithComma, makeNamesWithSpace, makenotMarriedStudents,
+  makeDeepCopyStudents, makeNamesWithComma, makeNamesWithSpace, makeNickIsMarried, makenotMarriedStudents,
   makeSortedByScores,
   makeSortedStudents, makeStudentsNames, makeTrueStudents,
   shadowCopy,
@@ -491,8 +491,53 @@ test('Homework_9', () => {
   ];
 
 //9. Добавьте всем студентам свойство "isStudent" со значением true (map)
-  let trueStudents=makeTrueStudents(students);
+  let trueStudents = makeTrueStudents(students);
   console.log(trueStudents)
   expect(trueStudents[0].isStudent).toBe(true)
 
+})
+test('Homework_10', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+
+//10. Nick женился. Выполните соответствующие преобразование массива students (map)
+  let studentsWithMarriedNick = makeNickIsMarried(students);
+  console.log(studentsWithMarriedNick)
+  expect(studentsWithMarriedNick[2].isMarried).toBe(true)
 })

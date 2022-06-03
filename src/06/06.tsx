@@ -51,3 +51,6 @@ export const makeNamesWithComma = (students:Array<StudentType>) => {
 export const makeTrueStudents = (students:Array<StudentType>) => {
   return students.map(el=>({el,isStudent:true}))
 }
+export const makeNickIsMarried = (students:Array<StudentType>) => {
+  return students.map(el=>el.name==='Nick'? ({...el,isMarried : true}):el)
+}
