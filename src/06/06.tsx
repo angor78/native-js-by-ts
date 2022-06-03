@@ -60,3 +60,6 @@ export const findAnn = (students:Array<StudentType>) => {
 export const findBestStudents = (students:Array<StudentType>) => {
   return students.reduce((acc,el)=>acc.scores>el.scores?acc:el)
 }
+export const getSumScores = (students:Array<StudentType>) => {
+  return students.reduce((acc,el)=>acc+el.scores,0)
+}

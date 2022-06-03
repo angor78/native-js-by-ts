@@ -1,5 +1,5 @@
 import {
-  findAnn, findBestStudents,
+  findAnn, findBestStudents, getSumScores,
   make3BestStudents,
   makeBestStudents,
   makeDeepCopy,
@@ -632,4 +632,49 @@ test('Homework_12', () => {
   let bestStudent = findBestStudents(students);
   console.log(bestStudent)
   expect(bestStudent.name).toBe("Nick")
+})
+test('Homework_13', () => {
+  const students = [
+    {
+      name: "Bob",
+      age: 22,
+      isMarried: true,
+      scores: 85
+    },
+    {
+      name: "Alex",
+      age: 21,
+      isMarried: true,
+      scores: 90,
+    },
+    {
+      name: "Nick",
+      age: 20,
+      isMarried: false,
+      scores: 120
+    },
+    {
+      name: "John",
+      age: 19,
+      isMarried: false,
+      scores: 100
+    },
+    {
+      name: "Helen",
+      age: 20,
+      isMarried: false,
+      scores: 110
+    },
+    {
+      name: "Ann",
+      age: 20,
+      isMarried: false,
+      scores: 105
+    },
+  ];
+
+//13. Найдите сумму баллов всех студентов (reduce)
+  let totalScores = getSumScores(students)
+  console.log(totalScores)
+  expect(totalScores).toBe(610)
 })
