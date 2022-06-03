@@ -54,3 +54,6 @@ export const makeTrueStudents = (students:Array<StudentType>) => {
 export const makeNickIsMarried = (students:Array<StudentType>) => {
   return students.map(el=>el.name==='Nick'? ({...el,isMarried : true}):el)
 }
+export const findAnn = (students:Array<StudentType>) => {
+  return students.find(el=>el.name==='Ann')
+}
