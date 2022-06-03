@@ -358,7 +358,7 @@ test('Homework_7', () => {
   console.log(notMarriedStudents)
   expect(notMarriedStudents.length).toBe(4)
 })
-test('Homework_7', () => {
+test('Homework_8', () => {
   const students = [
     {
       name: "Bob",
