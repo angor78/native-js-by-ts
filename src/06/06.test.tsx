@@ -4,7 +4,7 @@ import {
   makeDeepCopy,
   makeDeepCopyStudents, makenotMarriedStudents,
   makeSortedByScores,
-  makeSortedStudents,
+  makeSortedStudents, makeStudentsNames,
   shadowCopy,
   shadowCopyStudents
 } from "./06";
@@ -314,7 +314,7 @@ test('Homework_6a', () => {
   console.log(bestStudents)
   expect(bestStudents.length).toBe(3)
 })
-test('Homework_7',()=>{
+test('Homework_7', () => {
   const students = [
     {
       name: "Bob",
@@ -354,11 +354,11 @@ test('Homework_7',()=>{
     },
   ];
 //7. Сформируйте массив холостых студентов (filter)
-  let notMarriedStudents=makenotMarriedStudents(students);
+  let notMarriedStudents = makenotMarriedStudents(students);
   console.log(notMarriedStudents)
   expect(notMarriedStudents.length).toBe(4)
 })
-test('Homework_7',()=>{
+test('Homework_7', () => {
   const students = [
     {
       name: "Bob",
@@ -398,8 +398,8 @@ test('Homework_7',()=>{
     },
   ];
 //8. Сформируйте массив имён студентов (map)
-  let studentsNames=makeStudentsNames(students);
+  let studentsNames = makeStudentsNames(students);
   console.log(studentsNames)
   expect(studentsNames.length).toBe(6)
-  expect(studentsNames[0]).toBe('')
+  expect(studentsNames[0]).toBe("Bob")
 })

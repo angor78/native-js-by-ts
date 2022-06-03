@@ -39,3 +39,6 @@ export const make3BestStudents = (students:Array<StudentType>) => {
 export const makenotMarriedStudents = (students:Array<StudentType>) => {
   return students.filter(el=>el.isMarried!==true)
 }
+export const makeStudentsNames = (students:Array<StudentType>) => {
+  return students.map(el=>el.name)
+}
