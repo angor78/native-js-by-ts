@@ -57,3 +57,6 @@ export const makeNickIsMarried = (students:Array<StudentType>) => {
 export const findAnn = (students:Array<StudentType>) => {
   return students.find(el=>el.name==='Ann')
 }
+export const findBestStudents = (students:Array<StudentType>) => {
+  return students.reduce((acc,el)=>acc.scores>el.scores?acc:el)
+}
