@@ -58,7 +58,7 @@ export const makeDeepCopyMan = (obj: makeDeepCopyManPropsType) => {
         ...el,
         favoriteDish: {
           ...el.favoriteDish,
-          ingredients: [...el.favoriteDish.ingredients.map(i => i = {...i})]
+          ingredients: [...el.favoriteDish.ingredients.map(i => i={...i})]
         }
       })]
     }
@@ -74,10 +74,10 @@ export const changeIngredientsFavoriteDish = (obj: makeDeepCopyManPropsType, ing
         ...el,
         favoriteDish: {
           ...el.favoriteDish,
-          ingredients: [...el.favoriteDish.ingredients.map(i => el.favoriteDish.ingredients[0] ? i = {
+          ingredients: [...el.favoriteDish.ingredients.map(i => el.favoriteDish.ingredients[0] ?  {
             ...i,
             title: ingridient
-          } : i = {...i})]
+          } : {...i})]
         }
       })]
     }
@@ -131,6 +131,6 @@ export const addFriend = (user: UserType, newFriend: SingleFriendType) => {
 export const changeFriendAgeField = (user: UserChangedType, nameFriend: string, newAge: number) => {
   return {
     ...user,
-    friends:[...user.friends,,user.friends.find(el=>el.name===nameFriend?el.age=newAge:el)]
+    friends:[...user.friends,user.friends.find(el=>el.name===nameFriend?el.age=newAge:el)]
   }
 }
